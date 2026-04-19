@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى ملهمتي المجهولة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-night: radial-gradient(circle at center, #1a2a6c, #b21f1f, #fdbb2d);
+            --primary-heart: #ff3860;
+            --flower-pink: #ffb7c5;
+            --text-gold: #f9d976;
+            --glass-bg: rgba(255, 255, 255, 0.07);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Tajawal', sans-serif;
+            overflow: hidden;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .night-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #020111 0%, #191621 100%);
+            z-index: -2;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAKrVq36z8gAFWMEUv9BFCMDFvD39/8PAB7mBvX65C5fAAAAAElFTkSuQmCC) repeat;
+            opacity: 0.5;
+            animation: starsMove 100s linear infinite;
+        }
+
+        .twinkling {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: twinkle 4s infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes starsMove {
+            from {background-position: 0 0;}
+            to {background-position: 1000px 500px;}
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 0.2; }
+        }
+
+        .main-container {
+            width: 90%;
+            max-width: 500px;
+            padding: 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+            z-index: 10;
+        }
+
+        .logo-wrapper {
+            margin-bottom: 30px;
+            position: relative;
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px var(--primary-heart)); }
+            50% { transform: scale(1.03); filter: drop-shadow(0 0 15px var(--primary-heart)); }
+        }
+
+        h2.pass-title {
+            font-weight: 300;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            transition: 0.3s;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        input[type="password"]:focus {
+            outline: none;
+            border-color: var(--primary-heart);
+            box-shadow: 0 0 10px rgba(255, 56, 96, 0.5);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        button.login-btn, button.menu-btn, button.back-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: 500;
+            font-family: 'Tajawal', sans-serif;
+            transition: 0.3s all ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button.login-btn {
+            background: linear-gradient(45deg, #ff3860, #b21f1f);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 56, 96, 0.3);
+        }
+
+        button.login-btn:hover {
+            box-shadow: 0 6px 20px rgba(255, 56, 96, 0.5);
+            transform: translateY(-2px);
+        }
+
+        #error-msg {
+            color: #ffcccc;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+            animation: shake 0.4s;
+        }
+
+        #main-section, .poetry-section {
+            display: none;
+            width: 100%;
+        }
+
+        .menu-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            margin-bottom: 15px;
+            border: 1px solid var(--glass-border);
+            text-align: right;
+            padding-right: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateX(-5px);
+        }
+
+        .menu-btn::after {
+            content: '✦';
+            font-size: 12px;
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+        .menu-btn:hover::after {
+            opacity: 1;
+            color: var(--flower-pink);
+        }
+
+        .special-btn {
+            background: linear-gradient(45deg, rgba(161, 61, 61, 0.2), rgba(255, 56, 96, 0.2)) !important;
+            border: 1px solid rgba(255, 56, 96, 0.4) !important;
+            color: #ffb7c5 !important;
+            font-weight: 700 !important;
+        }
+        .special-btn:hover {
+            background: linear-gradient(45deg, rgba(161, 61, 61, 0.4), rgba(255, 56, 96, 0.4)) !important;
+        }
+
+        .content-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: right;
+            line-height: 2;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.9);
+            white-space: pre-wrap;
+            margin-bottom: 20px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        
+        .content-box::-webkit-scrollbar { width: 5px; }
+        .content-box::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 5px; }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 15px;
+            width: auto;
+            padding: 10px 25px;
+            margin-top: 10px;
+        }
+        .back-btn:hover { background: rgba(255, 255, 255, 0.2); }
+
+        .section-title {
+            color: var(--flower-pink);
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }@keyframes shake {
+            0%, 100% {transform: translateX(0);}
+            25% {transform: translateX(-5px);}
+            75% {transform: translateX(5px);}
+        }
+
+        @keyframes fadeEffect {
+            from {opacity: 0;} to {opacity: 1;}
+        }
+
+        .fade-in {
+            animation: fadeEffect 0.6s ease-in;
+        }
+
+        body.logged-in .twinkling {
+            opacity: 0.3;
+        }
+        body.logged-in .night-background {
+            filter: blur(2px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="night-background"></div>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <div class="main-container" id="mainContainer">
+        
+        <div id="login-section">
+            
+            <div class="logo-wrapper">
+                <svg width="150" height="150" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="heartGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                            <stop offset="0%" stop-color="#ff6b6b" />
+                            <stop offset="100%" stop-color="#ff3860" />
+                        </radialGradient>
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#f9d976" />
+                            <stop offset="100%" stop-color="#f2a65a" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <path d="M250 450 C 20 250, 100 50, 250 150 C 400 50, 480 250, 250 450 Z" 
+                          fill="url(#heartGrad)" 
+                          stroke="#ffffff" 
+                          stroke-width="2"
+                          opacity="0.9"/>
+                    
+                    <text x="180" y="270" font-family="Verdana" font-size="100" font-weight="bold" fill="url(#goldGrad)" text-anchor="middle">M</text>
+                    <text x="250" y="290" font-family="Verdana" font-size="60" font-weight="bold" fill="#ffffff" opacity="0.5" text-anchor="middle">&</text>
+                    <text x="320" y="310" font-family="Verdana" font-size="100" font-weight="bold" fill="url(#goldGrad)" text-anchor="middle">S</text>
+                    
+                    <g fill="#ffb7c5" opacity="0.8">
+                        <circle cx="250" cy="50" r="15"/> <circle cx="220" cy="60" r="10"/> <circle cx="280" cy="60" r="10"/>
+                        <circle cx="430" cy="150" r="12"/> <circle cx="460" cy="200" r="10"/> <circle cx="450" cy="250" r="12"/> <circle cx="400" cy="350" r="10"/>
+                        <circle cx="70" cy="150" r="12"/> <circle cx="40" cy="200" r="10"/> <circle cx="50" cy="250" r="12"/> <circle cx="100" cy="350" r="10"/>
+                        <circle cx="250" cy="470" r="10"/>
+                    </g>
+                    <g fill="#ffffff" opacity="0.6">
+                        <circle cx="150" cy="70" r="3"/> <circle cx="350" cy="70" r="3"/> <circle cx="420" cy="300" r="3"/> <circle cx="80" cy="300" r="3"/>
+                    </g>
+                </svg>
+            </div>
+
+            <h2 class="pass-title">أدخلي كلمة السر الخاصة بنا..</h2>
+            
+            <div class="input-group">
+                <input type="password" id="passwordInput" placeholder="• • • • • •">
+                <p id="error-msg">كلمة السر غير صحيحة، حاولي مرة أخرى أميرتي.</p>
+            </div>
+            
+            <button class="login-btn" onclick="checkPassword()">دخول</button>
+        </div>
+
+        <div id="main-section" class="fade-in">
+            <h2 class="section-title">مختارات شعرية</h2>
+            <div class="menu-buttons">
+                <button class="menu-btn" onclick="showSection('darwish')">شعر محمود درويش</button>
+                <button class="menu-btn" onclick="showSection('nizar')">شعر نزار قباني</button>
+                <button class="menu-btn" onclick="showSection('farouq')">شعر فاروق جويدة</button>
+                <button class="menu-btn" onclick="showSection('mutanabbi')">شعر المتنبي</button>
+                <button class="menu-btn" onclick="showSection('samir')">شعر محمد سمير</button>
+                <button class="menu-btn special-btn" onclick="showSection('muse')">إلى ملهمتي ودافعي وسمائي</button>
+            </div>
+        </div>
+
+        <div id="darwish" class="poetry-section fade-in">
+            <h2 class="section-title">محمود درويش</h2>
+            <div class="content-box">أجمل حب..
+
+يُطَيِّرُ حَمَاماً
+يَحُطُّ حَمَامْ
+أعِدّي ليَ الأرضَ كَيْ أسْتَرِيحْ
+فإني أُحبّكِ حتى التَعَبْ...
+
+صباحُكِ سُكَّرْ
+على شَفَتَيْكِ الغُيُومُ تَذُوبْ
+وَيَنْبُتُ للرِّيحِ ريشٌ وَشَعْرْ
+فَكَيْفَ أُحِبُّكِ كَيْفْ؟
+وأهرَبُ منكِ إليكِ..</div>
+            <button class="back-btn" onclick="goBack()">العودة للقائمة</button>
+        </div>
+
+        <div id="nizar" class="poetry-section fade-in">
+            <h2 class="section-title">نزار قباني</h2>
+            <div class="content-box">أتحبني؟..
+
+قولي.. "أحبكِ"
+كي تزيد وسامتي
+فبغير حبكِ لا أكون وسيماً
+قولي.. "أحبكِ"
+كي تصير أصابعي ذهباً
+وتصبح جبهتي قنديلاً..
+
+يا تِلكَ التي أسميتها دُنياي..
+إنّي خيّرتكِ فاختاري
+ما بين الموت على صدري..
+أو فوق دفاتر أشعاري.</div>
+            <button class="back-btn" onclick="goBack()">العودة للقائمة</button>
+        </div>
+
+        <div id="farouq" class="poetry-section fade-in">
+            <h2 class="section-title">فاروق جويدة</h2>
+            <div class="content-box">لأنكِ..
+
+لأنكِ في ناظريَّ.. كُلُّ شيءْ
+فأني أرى فيكِ صمتي، وصوتي
+وكلَّ الأماني التي لم تَجِئْ..
+
+وأنكِ نبضٌ لروحي، وضوءٌ
+إذا تاهَ عمري في ليلةٍ من ضَياعْ..
+وأنكِ حلمٌ تَمَنَّيْتُهُ
+وصدقٌ أتاني بلا أيِّ زَيْفْ.</div>
+            <button class="back-btn" onclick="goBack()">العودة للقائمة</button>
+        </div>
+
+        <div id="mutanabbi" class="poetry-section fade-in">
+            <h2 class="section-title">المتنبي</h2>
+            <div class="content-box">في عذوبة الحب..
+
+لعَيْنَيْكِ ما يَلْقَى الفُؤادُ وَمَا لَقِي
+وَلِلْحُبّ مالَمْ يَبْقَ منّي وَمَا بَقي
+وَمَا كُنْتُ مِمّنْ يَدْخُلُ العِشْقُ قَلْبَهُ
+وَلَكِنّ مَن يُبْصِرْ جُفُونَكِ يَعْشَقِ
+
+أتُراها لَكِ غَيْرَ حَسَنَةٍ..
+أنَّكِ زِنْتِ بِها كُلَّ مَنْ أثْنَى عَلَيْكِ.</div>
+            <button class="back-btn" onclick="goBack()">العودة للقائمة</button>
+        </div>
+
+        <div id="samir" class="poetry-section fade-in">
+            <h2 class="section-title">محمد سمير</h2>
+            <div class="content-box">وفي عينيكِ لمحتُ أماناً
+ينتزعُ الخوفَ من قلبي
+كأن الله قد خلقكِ
+لتكوني لي.. وحدي.</div>
+            <button class="back-btn" onclick="goBack()">العودة للقائمة</button>
+        </div>
+
+        <div id="muse" class="poetry-section fade-in">
+            <h2 class="section-title" style="color: white;">رسالة لقلبها</h2>
+            <div class="content-box" style="border: 1px solid rgba(255, 56, 96, 0.3); background: rgba(161, 61, 61, 0.2); color: #ffcccc;">يا ملهمتي، ودافعي، وسمائي..
+
+أكتبُ لكِ هذه الكلمات تحت ضوء النجوم التي تشبه بريق عينيكِ..
+
+أولاً.. أعتذر لكِ..
+أعتذر عن كل لحظة ضيق كنتُ أنا سبباً فيها، وعن أي تقصير نبعَ مني دون قصد. أنتِ لا تستحقين إلا الفرح، وقلبكِ الطاهر لا يستحق إلا الاستقرار والسكينة.
+
+ثانياً.. أشكركِ..
+أشكركِ لأنكِ موجودة في حياتي، لأنكِ النور الذي يضيء عتمتي، والدافع الذي يجعلني أرغب في أن أكون شخصاً أفضل كل يوم. أنتِ لستِ مجرد شخص أحبه، أنتِ السعادة التي طلبتها من الله.
+
+شكراً لكونكِ أنتِ.. وأسف إذا أخطأت في حقكِ يوماً.</div>
+            <button class="back-btn" onclick="goBack()">العودة للقائمة</button>
+        </div>
+
+    </div>
+
+    <script>
+        const SECRET_PASSWORD = "1/1/2007"; 
+
+        const loginSection = document.getElementById('login-section');
+        const mainSection = document.getElementById('main-section');
+        const passInput = document.getElementById('passwordInput');
+        const errorMsg = document.getElementById('error-msg');
+        const container = document.getElementById('mainContainer');
+        function checkPassword() {
+            if (passInput.value === SECRET_PASSWORD) {
+                errorMsg.style.display = 'none';
+                
+                loginSection.style.animation = 'shake 0.3s reverse';
+                loginSection.style.opacity = '0';
+                
+                setTimeout(() => {
+                    loginSection.style.display = 'none';
+                    mainSection.style.display = 'block';
+                    document.body.classList.add('logged-in');
+                    
+                    container.style.maxWidth = '600px';
+                }, 300);
+
+            } else {
+                errorMsg.style.display = 'block';
+                passInput.style.borderColor = '#ff3860';
+                passInput.value = '';
+                container.style.animation = 'shake 0.4s';
+                setTimeout(()=> container.style.animation = '', 400);
+            }
+        }
+
+        passInput.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                checkPassword();
+            }
+        });
+
+        function showSection(sectionId) {
+            mainSection.style.display = 'none';
+            document.getElementById(sectionId).style.display = 'block';
+            document.body.style.overflow = 'auto'; 
+            window.scrollTo(0, 0);
+        }
+
+        function goBack() {
+            var sections = document.querySelectorAll('.poetry-section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            
+            mainSection.style.display = 'block';
+            document.body.style.overflow = 'hidden'; 
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
